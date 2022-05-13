@@ -121,7 +121,6 @@ if ($apiRes->num_rows > 0){
     if (strlen($row['identifier']) === 0){
       $setApiKey = $mysqli->prepare('UPDATE websiteData SET identifier=?');
       $apiKey = bin2hex(random_bytes(20));
-      echo $apiKey;
       $hashedApiKey = password_hash($apiKey, PASSWORD_DEFAULT);
       $setApiKey->bind_param('s', $hashedApiKey);
       $setApiKey->execute();
@@ -147,6 +146,7 @@ if ($result->num_rows > 0){
   while ($row = $result->fetch_assoc()){
     if (strlen($row['adminUsername']) === 0){
       //No admin account set up. Display API key.
+      if (strlen($apiKey) !== 0){
       echo '<article class="message is-info">
   <div class="message-header">
     <p>API key</p>
@@ -156,6 +156,7 @@ if ($result->num_rows > 0){
       </div>
 </article>';
       break;
+      }
     }
   }
 }
