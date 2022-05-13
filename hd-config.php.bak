@@ -1,0 +1,15 @@
+<?php
+
+/** The name of the database for gowparl */
+define( 'DB_NAME', 'dbs6134887' );
+
+/** MySQL database username */
+define( 'DB_USER', 'dbu647958' );
+
+/** MySQL database password */
+define( 'DB_PASSWORD', 'cannolini22' );
+
+/** MySQL hostname */
+define( 'DB_HOST', 'db5007444694.hosting-data.io' );
+
+?>
