@@ -52,7 +52,6 @@ if ($adkRes->num_rows > 0){
     if (strlen($row['adminSessionKey']) === 0 || strlen($row['adminPassword']) === 0){
       $setAdminKey = $mysqli->prepare('UPDATE websiteData SET adminSessionKey=?');
       $bytes = random_bytes(15);
-      echo bin2hex($bytes);
       $setAdminKey->bind_param('s', password_hash($_SESSION['adminKey'], PASSWORD_DEFAULT));
       $setAdminKey->execute();
       $setAdminKey->close();
